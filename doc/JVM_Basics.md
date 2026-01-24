@@ -3,7 +3,7 @@ JVM Basics
 
 What is JDK, JRE, JVM?
 
-1. **JDK, JRE, and JVM: The "Nesting Doll" Relationship**
+### 1. **JDK, JRE, and JVM: The "Nesting Doll" Relationship**
 Think of these three components as layers of a system. To build and run a Java program, you need all of them, but they serve different purposes.
 
   * **JVM (Java Virtual Machine): The Engine**
@@ -21,14 +21,14 @@ Think of these three components as layers of a system. To build and run a Java p
 
     * **Formula**: `JDK = JRE + Development Tools (Compiler, Debugger, etc.)`
 
-2. **What is Bytecode?**
+### 2. **What is Bytecode?**
 When you write code in a `.java` file, it is written in a high-level language that humans can read. However, computers cannot read this directly.
 
   * **The Translation**: You use the **JDK compiler** `(javac)` to turn your source code into **Bytecode** (saved as a .class file).
   * **The Intermediate Language**: Bytecode is a highly optimized, intermediate set of instructions. It isn't quite machine code (which is specific to your hardware), but it's no longer high-level Java.
   * **JThe Role**: It acts as a universal language that any JVM, regardless of the operating system, can read and execute.
 
-3. **"Write Once, Run Anywhere" (WORA)**
+### 3. **"Write Once, Run Anywhere" (WORA)**
 This is the fundamental philosophy of Java. In many other languages (like C or C++), if you write a program on Windows, you often have to re-compile or rewrite parts of it to make it work on a Mac or Linux machine.
 
 **How Java achieves this:**
