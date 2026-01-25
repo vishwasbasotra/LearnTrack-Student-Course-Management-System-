@@ -11,11 +11,22 @@ public class Student {
 
     public Student(String firstName, String lastName, String email, String batch, boolean active) {
         this.id = IDGenerator.GenerateID(firstName);
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstName = Inputvalidator.setFirstName(firstName);
+        this.lastName = Inputvalidator.setLastName(lastName);
         this.email = Inputvalidator.emailValidator(email);
-        this.batch = batch;
-        this.active = active;
+        this.batch = Inputvalidator.setBatch(batch);
+        this.active = Inputvalidator.setActiveStatus(active);
+    }
+
+    public void displayStudentDetails(){
+        System.out.println("Student Name: "+this.firstName+" "+this.lastName);
+        System.out.println("ID: "+this.id);
+        System.out.println("Email: "+this.email);
+        System.out.println("Batch : "+this.batch);
+        if(this.active) System.out.println("Status: Active");
+        else  System.out.println("Status: Not-Active");
+
+
     }
 
     public String fullName(){
@@ -26,8 +37,9 @@ public class Student {
         return batch;
     }
 
-    public boolean isActive() {
-        return active;
+    public String isActive() {
+        if(active)  return "Active";
+        return "Not-Active";
     }
 
     public String getEmail() {
