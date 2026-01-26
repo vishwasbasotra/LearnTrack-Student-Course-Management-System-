@@ -16,6 +16,17 @@ public class Course {
         this.active = active;
     }
 
+    public void displayCourseDetails(){
+        System.out.println("Course Name: "+this.courseName);
+        System.out.println("ID: "+this.id);
+        System.out.println("ail: "+this.email);
+        System.out.println("Batch : "+this.batch);
+        if(this.active) System.out.println("Status: Active");
+        else  System.out.println("Status: Not-Active");
+
+
+    }
+
     public String getCourseName() {
         return courseName;
     }
