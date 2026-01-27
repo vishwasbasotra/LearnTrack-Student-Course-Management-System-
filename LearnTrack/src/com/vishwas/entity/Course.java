@@ -18,12 +18,12 @@ public class Course {
     }
 
     public void displayCourseDetails(){
-        System.out.println("Course Name: "+this.courseName);
+        System.out.println("\nCourse Name: "+this.courseName);
         System.out.println("ID: "+this.courseID);
         System.out.println("Description: "+this.description);
         System.out.println("Duration (in weeks) : "+this.durationInWeeks);
-        if(this.active) System.out.println("Status: Active");
-        else  System.out.println("Status: Not-Active");
+        if(this.active) System.out.println("Status: Active\n");
+        else  System.out.println("Status: Not-Active\n");
     }
 
     public String getCourseName() {

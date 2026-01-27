@@ -8,18 +8,18 @@ public class Enrollment {
     String enrollmentDate;
     boolean status;
 
-    public Enrollment(int enrollmentID, Student s, Course c, String enrollmentDate, boolean status) {
+    public Enrollment(Student s, String enrollmentDate, boolean status) {
         this.enrollmentID = nextID++;
         this.studentID = s.studentID;
-        this.courseID = c.courseID;
         this.enrollmentDate = enrollmentDate;
         this.status = status;
     }
 
     public void displayEnrollmentDetails(){
-        System.out.println("Enrollment ID: "+this.enrollmentID);
+        System.out.println("\nEnrollment ID: "+this.enrollmentID);
+        System.out.println("Student ID: "+this.studentID);
         System.out.println("Enrollment Date: "+this.enrollmentDate);
-        if(this.status) System.out.println("Status: Active");
-        else  System.out.println("Status: Not-Active");
+        if(this.status) System.out.println("Status: Active\n");
+        else  System.out.println("Status: Not-Active\n");
     }
 }
