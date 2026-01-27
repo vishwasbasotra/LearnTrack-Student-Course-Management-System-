@@ -4,13 +4,13 @@ import com.vishwas.util.IDGenerator;
 import com.vishwas.util.Inputvalidator;
 
 public class Student {
-    int id;
+    int StudentID;
     String firstName, lastName, batch;
     private final String email;
     private boolean active;
 
     public Student(String firstName, String lastName, String email, String batch, boolean active) {
-        this.id = IDGenerator.GenerateID(firstName);
+        this.StudentID = IDGenerator.generateStudentID(firstName);
         this.firstName = Inputvalidator.setFirstName(firstName);
         this.lastName = Inputvalidator.setLastName(lastName);
         this.email = Inputvalidator.emailValidator(email);
@@ -20,7 +20,7 @@ public class Student {
 
     public void displayStudentDetails(){
         System.out.println("Student Name: "+this.firstName+" "+this.lastName);
-        System.out.println("ID: "+this.id);
+        System.out.println("ID: "+this.StudentID);
         System.out.println("Email: "+this.email);
         System.out.println("Batch : "+this.batch);
         if(this.active) System.out.println("Status: Active");

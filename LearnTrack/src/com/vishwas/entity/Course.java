@@ -1,16 +1,17 @@
 package com.vishwas.entity;
 
+import com.vishwas.util.IDGenerator;
 import com.vishwas.util.Inputvalidator;
 
 public class Course {
-    int id;
+    int courseID;
     String courseName, description;
     int durationInWeeks;
     boolean active;
 
-    public Course(Student s, String courseName, String description, int durationInWeeks, boolean active) {
+    public Course(int CourseID, String courseName, String description, int durationInWeeks, boolean active) {
         super();
-        this.id = s.id;
+        this.courseID = IDGenerator.generateCourseID(courseName);
         this.courseName = Inputvalidator.setCourseName(courseName);
         this.description =Inputvalidator.setDescription(description);
         this.durationInWeeks = Inputvalidator.setDuration(durationInWeeks);
@@ -19,7 +20,7 @@ public class Course {
 
     public void displayCourseDetails(){
         System.out.println("Course Name: "+this.courseName);
-        System.out.println("ID: "+this.id);
+        System.out.println("ID: "+this.courseID);
         System.out.println("Description: "+this.description);
         System.out.println("Duration (in weeks) : "+this.durationInWeeks);
         if(this.active) System.out.println("Status: Active");
