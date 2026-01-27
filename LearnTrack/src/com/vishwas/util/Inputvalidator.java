@@ -37,4 +37,9 @@ public  class Inputvalidator {
         if(duration > 0)   return duration;
         else throw new IllegalArgumentException("Enter valid duration");
     }
+
+//    public static char setTryAgain(char input){
+//        if(input != null && !input.isBlank())   return input;
+//        else throw new IllegalArgumentException("Enter description");
+//    }
 }

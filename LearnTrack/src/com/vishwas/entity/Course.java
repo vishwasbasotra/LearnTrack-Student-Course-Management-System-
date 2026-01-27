@@ -1,17 +1,17 @@
 package com.vishwas.entity;
 
-import com.vishwas.util.IDGenerator;
 import com.vishwas.util.Inputvalidator;
 
 public class Course {
-    int courseID;
+    static int nextID = 101;
+    final int courseID;
     String courseName, description;
     int durationInWeeks;
     boolean active;
 
     public Course(int CourseID, String courseName, String description, int durationInWeeks, boolean active) {
         super();
-        this.courseID = IDGenerator.generateCourseID(courseName);
+        this.courseID = nextID++;
         this.courseName = Inputvalidator.setCourseName(courseName);
         this.description =Inputvalidator.setDescription(description);
         this.durationInWeeks = Inputvalidator.setDuration(durationInWeeks);

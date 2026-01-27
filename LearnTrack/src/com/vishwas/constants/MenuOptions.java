@@ -4,6 +4,13 @@ import java.util.Scanner;
 
 public class MenuOptions {
     static Scanner sc = new Scanner(System.in);
+
+//    public static void tryAgain(){
+//        System.out.println("You want to try again? Enter y for 'Yes' and n for 'No'");
+//        char input = sc.next().charAt(0);
+//        if(input == 'y' || input == 'Y')    displayMainMenu();
+//        else return 0;
+//    }
     public static int displayMainMenu(){
         System.out.println("Learner Track: Student & Course Management");
         System.out.println("------------------Menu--------------------");
