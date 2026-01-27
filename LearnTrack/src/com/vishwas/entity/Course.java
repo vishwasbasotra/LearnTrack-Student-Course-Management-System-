@@ -4,13 +4,12 @@ import com.vishwas.util.Inputvalidator;
 
 public class Course {
     static int nextID = 101;
-    final int courseID;
+    public final int courseID;
     String courseName, description;
     int durationInWeeks;
     boolean active;
 
-    public Course(int CourseID, String courseName, String description, int durationInWeeks, boolean active) {
-        super();
+    public Course(String courseName, String description, int durationInWeeks, boolean active) {
         this.courseID = nextID++;
         this.courseName = Inputvalidator.setCourseName(courseName);
         this.description =Inputvalidator.setDescription(description);
@@ -25,8 +24,6 @@ public class Course {
         System.out.println("Duration (in weeks) : "+this.durationInWeeks);
         if(this.active) System.out.println("Status: Active");
         else  System.out.println("Status: Not-Active");
-
-
     }
 
     public String getCourseName() {
