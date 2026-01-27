@@ -29,16 +29,12 @@ public  class Inputvalidator {
         if(active == null) throw new IllegalArgumentException("Active Status Empty");
         else return active;
     }
-
-//    public static String emailValidator(String email){
-//        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[a-z]{2,6}$";
-//        if (!email.matches(emailRegex)) System.out.println("Invalid email");
-//        return email;
-//    }
-//
-//    public static String emailValidator(String email){
-//        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[a-z]{2,6}$";
-//        if (!email.matches(emailRegex)) System.out.println("Invalid email");
-//        return email;
-//    }
+    public static String setDescription(String description){
+        if(description != null && !description.isBlank())   return description;
+        else throw new IllegalArgumentException("Enter description");
+    }
+    public static int setDuration(int duration){
+        if(duration > 0)   return duration;
+        else throw new IllegalArgumentException("Enter valid duration");
+    }
 }

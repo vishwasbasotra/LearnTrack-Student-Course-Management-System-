@@ -9,18 +9,19 @@ public class Course {
     boolean active;
 
     public Course(Student s, String courseName, String description, int durationInWeeks, boolean active) {
+        super();
         this.id = s.id;
         this.courseName = Inputvalidator.setCourseName(courseName);
-        this.description = description;
-        this.durationInWeeks = durationInWeeks;
-        this.active = active;
+        this.description =Inputvalidator.setDescription(description);
+        this.durationInWeeks = Inputvalidator.setDuration(durationInWeeks);
+        this.active = Inputvalidator.setActiveStatus(active);
     }
 
     public void displayCourseDetails(){
         System.out.println("Course Name: "+this.courseName);
         System.out.println("ID: "+this.id);
-        System.out.println("ail: "+this.email);
-        System.out.println("Batch : "+this.batch);
+        System.out.println("Description: "+this.description);
+        System.out.println("Duration (in weeks) : "+this.durationInWeeks);
         if(this.active) System.out.println("Status: Active");
         else  System.out.println("Status: Not-Active");
 
@@ -49,5 +50,8 @@ public class Course {
 
     public void setDurationInWeeks(int durationInWeeks) {
         this.durationInWeeks = durationInWeeks;
+    }
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
