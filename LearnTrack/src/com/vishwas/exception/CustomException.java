@@ -1,4 +1,4 @@
 package com.vishwas.exception;
 
-public class CustomExceptions {
+public class CustomException {
 }

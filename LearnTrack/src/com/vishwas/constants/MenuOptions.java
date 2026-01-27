@@ -15,12 +15,28 @@ public class MenuOptions {
         return sc.nextInt();
     }
 
-    public static void displayStudentMenu() {
+    public static int displayStudentMenu() {
+        System.out.println("1. Add new student");
+        System.out.println("2. View all students");
+        System.out.println("3. Search student by ID");
+        System.out.println("4. Deactivate a student");
+        System.out.print("\nEnter 1-4 to select: ");
+        return sc.nextInt();
     }
 
-    public static void displayCourseMenu() {
+    public static int displayCourseMenu() {
+        System.out.println("1. Add new course");
+        System.out.println("2. View all courses");
+        System.out.println("3. Activate/Deactivate a course");
+        System.out.print("\nEnter 1-3 to select: ");
+        return sc.nextInt();
     }
 
-    public static void displayEnrollmentMenu() {
+    public static int displayEnrollmentMenu() {
+        System.out.println("1. Enroll a student in a course");
+        System.out.println("2. View enrollments for a student");
+        System.out.println("3. Mark enrollment as completed/cancelled");
+        System.out.print("\nEnter 1-3 to select: ");
+        return sc.nextInt();
     }
 }

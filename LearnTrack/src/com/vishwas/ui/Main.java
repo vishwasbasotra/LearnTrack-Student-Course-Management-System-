@@ -22,10 +22,11 @@ public class Main {
                     return;
                 default:
                     System.out.println("\nSelected option is invalid, please select again");
+                    System.out.print("\033[H\033[2J");
                     System.out.flush();
 
                     MenuOptions.displayMainMenu();
-                    //throw new IllegalArgumentException("Invalid option selected");
+                    //CustomExceptions.invalidInput();
             }
         }
     }
