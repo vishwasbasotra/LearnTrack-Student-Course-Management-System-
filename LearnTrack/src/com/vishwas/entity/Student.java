@@ -3,9 +3,9 @@ package com.vishwas.entity;
 import com.vishwas.util.Inputvalidator;
 
 public class Student extends Person {
-    static int nextID = 1001;
-    public final int studentID;
-    String firstName, lastName, batch;
+    private static int nextID = 1001;
+    private final int studentID;
+    private String firstName, lastName, batch;
     private final String email;
     private boolean active;
 
@@ -48,6 +48,9 @@ public class Student extends Person {
         return email;
     }
 
+    public int getStudentID() {
+        return studentID;
+    }
 
     public void setFirstName(String firstName) {
         if(firstName != null) this.firstName = firstName;

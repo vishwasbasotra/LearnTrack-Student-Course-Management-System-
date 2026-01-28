@@ -3,11 +3,11 @@ package com.vishwas.entity;
 import com.vishwas.util.Inputvalidator;
 
 public class Course {
-    static int nextID = 101;
-    public final int courseID;
-    String courseName, description;
-    int durationInWeeks;
-    boolean active;
+    private static int nextID = 101;
+    private final int courseID;
+    private String courseName, description;
+    private int durationInWeeks;
+    private boolean active;
 
     public Course(String courseName, String description, int durationInWeeks, boolean active) {
         this.courseID = nextID++;
