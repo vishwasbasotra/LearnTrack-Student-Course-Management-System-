@@ -13,13 +13,9 @@ public  class Inputvalidator {
         if(courseName != null && !courseName.isBlank()) return courseName;
         return CustomException.invalidCourseName();
     }
-    public static String setFirstName(String firstName){
+    public static String setName(String firstName){
         if(firstName != null && !firstName.isBlank()) return firstName;
         return CustomException.invalidFirstName();
-    }
-    public static String setLastName(String lastName){
-        if(lastName != null && !lastName.isBlank()) return lastName;
-        return CustomException.invalidLastName();
     }
 
     public static String setSex(String sex){

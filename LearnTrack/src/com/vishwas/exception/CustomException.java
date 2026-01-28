@@ -2,6 +2,10 @@ package com.vishwas.exception;
 
 public class CustomException {
 
+    public static String invalidInput(){
+        throw new IllegalAccessError("Invalid Input");
+    }
+
     public static String invalidSex(){
         throw new IllegalAccessError("Invalid Sex");
     }

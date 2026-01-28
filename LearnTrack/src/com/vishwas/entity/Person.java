@@ -8,8 +8,8 @@ public class Person {
 
     public Person(String firstName, String lastName, String sex) {
         this.sex = Inputvalidator.setSex(sex);
-        this.firstName = Inputvalidator.setFirstName(firstName);
-        this.lastName = Inputvalidator.setLastName(lastName);
+        this.firstName = Inputvalidator.setName(firstName);
+        this.lastName = Inputvalidator.setName(lastName);
         Person.population += 1;
     }
 
