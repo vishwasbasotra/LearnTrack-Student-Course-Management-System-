@@ -1,4 +1,42 @@
 package com.vishwas.exception;
 
 public class CustomException {
+
+    public static String invalidSex(){
+        throw new IllegalAccessError("Invalid Sex");
+    }
+
+    public static String invalidFirstName(){
+        throw new IllegalAccessError("First Name is not provided");
+    }
+
+    public static String invalidLastName(){
+        throw new IllegalAccessError("Last Name is not provided");
+    }
+
+    public static String invalidCourseName(){
+        throw new IllegalAccessError("Course Name is not provided");
+    }
+
+    public static String invalidEmail(){
+        throw new IllegalAccessError("Invalid Email");
+    }
+
+    public static String invalidBatch(){
+        throw new IllegalAccessError("Batch is not provided");
+    }
+
+    public static String invalidActiveStatus(){
+        throw new IllegalAccessError("Active Status is not provided");
+    }
+
+    public static int emptyInput(){
+        throw new IllegalAccessError("Empty Input");
+    }
+
+    public static int invalidDuration(){
+        throw new IllegalAccessError("Invalid Duration");
+    }
+
+
 }

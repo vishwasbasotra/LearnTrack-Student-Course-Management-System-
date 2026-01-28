@@ -4,7 +4,7 @@ import com.vishwas.util.Inputvalidator;
 
 public class Course {
     private static int nextID = 101;
-    private final int courseID;
+    final int courseID;
     private String courseName, description;
     private int durationInWeeks;
     private boolean active;

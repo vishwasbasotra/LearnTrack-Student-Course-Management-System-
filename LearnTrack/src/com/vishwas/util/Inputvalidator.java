@@ -1,45 +1,51 @@
 package com.vishwas.util;
 
+import com.vishwas.exception.CustomException;
+
 public  class Inputvalidator {
     public static String emailValidator(String email){
         String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[a-z]{2,6}$";
         if (email != null && email.matches(emailRegex)) return email;
-        else {
-            throw new IllegalArgumentException("Invalid Email: "+ email);
-        }
+        return CustomException.invalidEmail();
     }
 
     public static String setCourseName(String courseName){
         if(courseName != null && !courseName.isBlank()) return courseName;
-        else throw new IllegalArgumentException("Enter a course name");
+        return CustomException.invalidCourseName();
     }
     public static String setFirstName(String firstName){
         if(firstName != null && !firstName.isBlank()) return firstName;
-        else throw new IllegalArgumentException("Enter a first name");
+        return CustomException.invalidFirstName();
     }
     public static String setLastName(String lastName){
         if(lastName != null && !lastName.isBlank()) return lastName;
-        else throw new IllegalArgumentException("Enter a last name");
+        return CustomException.invalidLastName();
     }
+
+    public static String setSex(String sex){
+        if((!sex.isBlank()) && (sex.equals("Male") || sex.equals("male") || sex.equals("Female") || sex.equals("female")) ) return sex;
+        return CustomException.invalidSex();
+    }
+
     public static String setBatch(String batch){
         if(batch != null && !batch.isBlank()) return batch;
-        else throw new IllegalArgumentException("Enter a batch");
+        return CustomException.invalidBatch();
     }
     public static Boolean setActiveStatus(Boolean active){
-        if(active == null) throw new IllegalArgumentException("Active Status Empty");
-        else return active;
+        if(active == null) CustomException.invalidActiveStatus();
+        return active;
     }
     public static String setDescription(String description){
         if(description != null && !description.isBlank())   return description;
-        else throw new IllegalArgumentException("Enter description");
+        return CustomException.invalidActiveStatus();
     }
     public static int setDuration(int duration){
         if(duration > 0)   return duration;
-        else throw new IllegalArgumentException("Enter valid duration");
+        return CustomException.invalidDuration();
     }
 
 //    public static char setTryAgain(char input){
 //        if(input != null && !input.isBlank())   return input;
-//        else throw new IllegalArgumentException("Enter description");
+//        else CustomException.invalidInput();
 //    }
 }

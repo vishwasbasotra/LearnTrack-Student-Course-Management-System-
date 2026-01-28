@@ -4,17 +4,23 @@ import com.vishwas.util.Inputvalidator;
 
 public class Student extends Person {
     private static int nextID = 1001;
-    private final int studentID;
-    private String firstName, lastName, batch;
+    final int studentID;
+    private String batch;
     private final String email;
     private boolean active;
 
     public Student(String firstName, String lastName,String sex, String email, String batch, boolean active) {
-        super(sex);
+        super(firstName, lastName, sex);
         this.studentID = nextID++;
-        this.firstName = Inputvalidator.setFirstName(firstName);
-        this.lastName = Inputvalidator.setLastName(lastName);
         this.email = Inputvalidator.emailValidator(email);
+        this.batch = Inputvalidator.setBatch(batch);
+        this.active = Inputvalidator.setActiveStatus(active);
+    }
+
+    public Student(String firstName, String lastName,String sex, String batch, boolean active) {
+        super(firstName, lastName, sex);
+        this.studentID = nextID++;
+        this.email = "NA";
         this.batch = Inputvalidator.setBatch(batch);
         this.active = Inputvalidator.setActiveStatus(active);
     }
