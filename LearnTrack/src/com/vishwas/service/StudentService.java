@@ -25,6 +25,7 @@ public class StudentService extends Main {
                 return;
             case 2:
                 for (int i = 0; i < 50; i++) System.out.println(); //Print 50 new lines
+                System.out.println("-------List of all Students-------\n");
                 for(Student s: studentList){
                     s.displayStudentDetails();
                 }

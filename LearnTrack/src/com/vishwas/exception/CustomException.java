@@ -2,7 +2,7 @@ package com.vishwas.exception;
 
 public class CustomException {
 
-    public static String invalidInput(){
+    public static void invalidInput(){
         throw new IllegalAccessError("Invalid Input");
     }
 
@@ -48,6 +48,15 @@ public class CustomException {
 
     public static void invalidCourseID(){
         throw new IllegalAccessError("Enter CourseID Starting from 101");
+    }
+    public static void invalidEnrollmentID(){
+        throw new IllegalAccessError("Enter EnrollmentID Starting from 10001");
+    }
+    public static void invalidDate(){
+        throw new IllegalAccessError("Invalid date format. Please use dd/MM/yyyy.");
+    }
+    public static void invalidEnrollmentStatus(){
+        throw new IllegalAccessError("Invalid Enrollment Status, Please Enter e.g., 'ACTIVE', 'COMPLETED', 'CANCELLED '");
     }
 
 }

@@ -26,6 +26,7 @@ public class CourseService extends Main {
                 return;
             case 2:
                 for (int i = 0; i < 50; i++) System.out.println(); //Print 50 new lines
+                System.out.println("-------List of all the Courses-------\n");
                 for(Course c: courseList){
                     c.displayCourseDetails();
                 }

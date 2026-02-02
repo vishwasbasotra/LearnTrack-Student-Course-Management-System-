@@ -39,7 +39,7 @@ public class MenuOptions {
 
     public static int displayEnrollmentMenu() {
         System.out.println("1. Enroll a student in a course");
-        System.out.println("2. View enrollments for a student");
+        System.out.println("2. View enrollments");
         System.out.println("3. Mark enrollment as completed/cancelled");
         System.out.println("4. Exit");
         System.out.print("\nEnter 1-4 to select: ");
