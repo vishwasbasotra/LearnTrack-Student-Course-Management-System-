@@ -38,6 +38,10 @@ public class Course {
         return durationInWeeks;
     }
 
+    public int getCourseID() {
+        return courseID;
+    }
+
     public void setCourseName(String courseName) {
         this.courseName = courseName;
     }

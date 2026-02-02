@@ -1,12 +1,11 @@
 package com.vishwas.service;
 
 import com.vishwas.entity.Student;
+import com.vishwas.exception.EntityNotFoundException;
 import com.vishwas.ui.Main;
 import com.vishwas.exception.CustomException;
 import com.vishwas.util.Inputvalidator;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class StudentService extends Main {
@@ -42,7 +41,7 @@ public class StudentService extends Main {
                         flag = true;
                     }
                 }
-                if(!flag) System.out.println("Student not found!!!");
+                if(!flag) EntityNotFoundException.studentNotFound();
                 return;
             case 4:
                 for (int i = 0; i < 50; i++) System.out.println(); //Print 50 new lines
@@ -57,7 +56,7 @@ public class StudentService extends Main {
                         flag = true;
                     }
                 }
-                if(!flag) System.out.println("Student not found!!!");
+                if(!flag) EntityNotFoundException.studentNotFound();
                 return;
             case 5:
                 System.out.println("Thank You!!!");
@@ -90,12 +89,6 @@ public class StudentService extends Main {
         // Logical Conversion: If they type "yes", status becomes true
         boolean status = active.equalsIgnoreCase("yes");
         return new Student(firstName, lastName, sex, email, batch, status);
-    }
-
-    static void displayStudentInfo(){
-        for(Student s: studentList){
-            s.displayStudentDetails();
-        }
     }
 
 }

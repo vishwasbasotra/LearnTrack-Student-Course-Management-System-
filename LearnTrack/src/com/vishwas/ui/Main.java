@@ -6,6 +6,8 @@ import com.vishwas.entity.Enrollment;
 import com.vishwas.entity.Person;
 import com.vishwas.entity.Student;
 import com.vishwas.exception.CustomException;
+import com.vishwas.service.CourseService;
+import com.vishwas.service.EnrollmentService;
 import com.vishwas.service.StudentService;
 
 import java.util.ArrayList;
@@ -13,6 +15,8 @@ import java.util.Arrays;
 
 public class Main {
     protected static ArrayList<Student> studentList = new ArrayList<>();
+    protected static ArrayList<Course> courseList = new ArrayList<>();
+    protected static ArrayList<Enrollment> enrollmentList = new ArrayList<>();
     static void main(String[] args) {
         int selectedMainMenuOption, selectedStudentMenuOption, selectedCourseMenuOption, selectedEnrollmentMenuOption;
 
@@ -23,7 +27,6 @@ public class Main {
         studentList.add(s2);
         studentList.add(s3);
 
-        ArrayList<Course> courseList = new ArrayList<>();
         Course c1 = new Course("DSA", "NA", 60, true);
         Course c2 = new Course("DBMS", "NA", 60,true);
         Course c3 = new Course("OS", "NA", 60,true);
@@ -34,7 +37,6 @@ public class Main {
 //            s.displayCourseDetails();
 //        }
 
-        ArrayList<Enrollment> enrollmentList = new ArrayList<>();
         Enrollment e1 = new Enrollment(s1, "12/12/2026", true);
         Enrollment e2 = new Enrollment(s2, "12/12/2026", true);
         Enrollment e3 = new Enrollment(s3, "12/12/2026", true);
@@ -56,10 +58,13 @@ public class Main {
                     return;
                 case 2:
                     for (int i = 0; i < 50; i++)    System.out.println(); //Print 50 new lines
-                    MenuOptions.displayCourseMenu();
+                    System.out.println("-------Course Management-------\n");
+                    CourseService.courseManagement(MenuOptions.displayCourseMenu());
                     return;
                 case 3:
                     for (int i = 0; i < 50; i++)    System.out.println(); //Print 50 new lines
+                    System.out.println("-------Course Management-------\n");
+                    EnrollmentService.enrollmentManagement(MenuOptions.displayCourseMenu());
                     MenuOptions.displayEnrollmentMenu();
                     return;
                 case 4:

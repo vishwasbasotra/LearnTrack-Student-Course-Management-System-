@@ -44,4 +44,8 @@ public  class Inputvalidator {
         if(input < 1000)   CustomException.invalidStudentID();
         return input;
     }
+    public static int validateCourseID(int input){
+        if(input < 100)   CustomException.invalidCourseID();
+        return input;
+    }
 }
