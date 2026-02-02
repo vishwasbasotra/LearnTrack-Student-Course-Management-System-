@@ -36,24 +36,27 @@ Developing LearnTrack provided deep practical experience in:
 * Memory Management: Understanding how the JVM allocates objects on the Heap and manages references within Collections.
 
 ## Suggested Directory Structure
-src/
-└── com/
-    └── vishwas/
-        ├── ui/
-        │   └── Main.java             // Application entry point
-        ├── entity/                   // Data models
-        │   ├── Person.java           // Parent class for inheritance
-        │   ├── Student.java
+### 📂 Project Structure
+
+```bash
+src
+└── com
+    └── vishwas
+        ├── constants   # Application-wide constants
+        │   └── MenuOptions.java
+        ├── entity      # Data models (POJOs)
         │   ├── Course.java
-        │   └── Enrollment.java
-        ├── service/                  // Business logic layer
-        │   ├── StudentService.java
+        │   ├── Enrollment.java
+        │   ├── Person.java
+        │   └── Student.java
+        ├── exception   # Custom error handling
+        │   ├── CustomException.java
+        │   └── EntityNotFoundException.java
+        ├── service     # Business logic layer
         │   ├── CourseService.java
-        │   └── EnrollmentService.java
-        ├── exception/                // Custom error handling
-        │   ├── EntityNotFoundException.java
-        │   └── CustomException.java
-        ├── util/                     // Helper classes
-        │   └── InputValidator.java
-        └── constants/                // Application-wide constants
-            └── MenuOptions.java
+        │   ├── EnrollmentService.java
+        │   └── StudentService.java
+        ├── ui          # Application entry point
+        │   └── Main.java
+        └── util        # Helper classes & Validation
+            └── InputValidator.java
