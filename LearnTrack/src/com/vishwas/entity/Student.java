@@ -55,7 +55,6 @@ public class Student extends Person {
     public int getStudentID() {
         return studentID;
     }
-
     public void setFirstName(String firstName) {
         if(firstName != null) this.firstName = firstName;
         else System.out.println("Empty");
