@@ -33,8 +33,6 @@ public class Student extends Person {
         System.out.println("Batch : "+this.batch);
         if(this.active) System.out.println("Status: Active\n");
         else  System.out.println("Status: Not-Active\n");
-
-
     }
 
     public String fullName(){

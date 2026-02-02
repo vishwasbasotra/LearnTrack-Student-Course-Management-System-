@@ -12,23 +12,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
-
+    protected static ArrayList<Student> studentList = new ArrayList<>();
     static void main(String[] args) {
         int selectedMainMenuOption, selectedStudentMenuOption, selectedCourseMenuOption, selectedEnrollmentMenuOption;
-        ArrayList<Student> studentList = new ArrayList<>();
+
         Student s1 = new Student("Akash", "Sharma", "Male", "test@gmail.com", "Java18", true);
         Student s2 = new Student("Vishwas", "Basotra", "Male","rest@gmail.com", "Java18", true);
         Student s3 = new Student("Chander", "Kumar", "Male","hello@gmail.com", "Java18", true);
         studentList.add(s1);
         studentList.add(s2);
         studentList.add(s3);
-        //studentList.add(new Student("Vishwas", "Basotra", "rest@gmail.com", "Java18", true));
-        
-//        for(Student s: studentList){
-//            s.displayStudentDetails();
-//        }
 
-        //Person.getPopulation();
         ArrayList<Course> courseList = new ArrayList<>();
         Course c1 = new Course("DSA", "NA", 60, true);
         Course c2 = new Course("DBMS", "NA", 60,true);
