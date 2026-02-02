@@ -38,29 +38,22 @@ Developing LearnTrack provided deep practical experience in:
 ## Suggested Directory Structure
 src/
 └── com/
-└── vishwas/
-├──ui
-│ ├── Main.java // Application
-│
-entry point
-├── entity/
-│ ├── Person.java
-│ ├── Student.java
-│ ├── Course.java
-│ └── Enrollment.java
-│
-├── service/ // Business logic layer
-│ ├── StudentService.java
-│ ├── CourseService.java
-│ └── EnrollmentService.java
-│
-├── exception/
-│ ├── EntityNotFoundException.java
-│ └── CustomException.java
-│
-├── util/
-│ └── InputValidator.java
-│
-├── constants/ // Application-wide
-constants
-│ ├── MenuOptions.java
+    └── vishwas/
+        ├── ui/
+        │   └── Main.java             // Application entry point
+        ├── entity/                   // Data models
+        │   ├── Person.java           // Parent class for inheritance
+        │   ├── Student.java
+        │   ├── Course.java
+        │   └── Enrollment.java
+        ├── service/                  // Business logic layer
+        │   ├── StudentService.java
+        │   ├── CourseService.java
+        │   └── EnrollmentService.java
+        ├── exception/                // Custom error handling
+        │   ├── EntityNotFoundException.java
+        │   └── CustomException.java
+        ├── util/                     // Helper classes
+        │   └── InputValidator.java
+        └── constants/                // Application-wide constants
+            └── MenuOptions.java
