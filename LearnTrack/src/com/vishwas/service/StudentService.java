@@ -13,6 +13,8 @@ public class StudentService extends Main {
     static Scanner sc = new Scanner(System.in);
     static String firstName, lastName, sex;
     private static String batch, email, active;
+    static int id;
+    static boolean flag;
 
     public static void studentManagement(int option){
         switch (option){
@@ -32,13 +34,30 @@ public class StudentService extends Main {
                 for (int i = 0; i < 50; i++) System.out.println(); //Print 50 new lines
                 System.out.println("\n-------Search Student by ID-------");
                 System.out.print("Enter Student ID Starting 1001 to ... : ");
-                int id = sc.nextInt();
+                id = Inputvalidator.validateStudentID(sc.nextInt());
+                flag = false;
                 for(Student s: studentList){
-                    if(s.getStudentID() == id)  s.displayStudentDetails();
+                    if(s.getStudentID() == id){
+                        s.displayStudentDetails();
+                        flag = true;
+                    }
                 }
+                if(!flag) System.out.println("Student not found!!!");
                 return;
             case 4:
                 for (int i = 0; i < 50; i++) System.out.println(); //Print 50 new lines
+                System.out.println("\n-------Deactivation Student by ID-------");
+                System.out.print("\nEnter StudentID for Deactivation: ");
+                id = Inputvalidator.validateStudentID(sc.nextInt());
+                flag = false;
+                for(Student s: studentList){
+                    if(s.getStudentID() == id){
+                        s.setActive(false);
+                        s.displayStudentDetails();
+                        flag = true;
+                    }
+                }
+                if(!flag) System.out.println("Student not found!!!");
                 return;
             case 5:
                 System.out.println("Thank You!!!");

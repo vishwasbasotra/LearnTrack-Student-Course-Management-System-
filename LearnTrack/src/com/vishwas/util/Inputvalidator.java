@@ -40,8 +40,8 @@ public  class Inputvalidator {
         return CustomException.invalidDuration();
     }
 
-//    public static char setTryAgain(char input){
-//        if(input != null && !input.isBlank())   return input;
-//        else CustomException.invalidInput();
-//    }
+    public static int validateStudentID(int input){
+        if(input < 1000)   CustomException.invalidStudentID();
+        return input;
+    }
 }

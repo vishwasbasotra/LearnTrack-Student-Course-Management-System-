@@ -42,5 +42,8 @@ public class CustomException {
         throw new IllegalAccessError("Invalid Duration");
     }
 
+    public static String invalidStudentID(){
+        throw new IllegalAccessError("Enter StudentID Starting from 1001");
+    }
 
 }
