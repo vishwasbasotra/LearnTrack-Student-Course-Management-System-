@@ -1,7 +1,6 @@
 package com.vishwas.service;
 
 import com.vishwas.entity.Course;
-import com.vishwas.entity.Student;
 import com.vishwas.exception.EntityNotFoundException;
 import com.vishwas.ui.Main;
 import com.vishwas.exception.CustomException;

@@ -1,14 +1,11 @@
 package com.vishwas.service;
 
 import com.vishwas.entity.Enrollment;
-import com.vishwas.entity.Student;
 import com.vishwas.exception.EntityNotFoundException;
 import com.vishwas.ui.Main;
 import com.vishwas.exception.CustomException;
 import com.vishwas.util.Inputvalidator;
 
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.Scanner;
 
 public class EnrollmentService extends Main {

@@ -1,9 +1,6 @@
 package com.vishwas.exception;
 
 public class EntityNotFoundException {
-    public static void invalidInput(){
-        throw new IllegalArgumentException("Invalid Input !!!");
-    }
 
     public static void studentNotFound(){
         throw new IllegalArgumentException("Student not found !!!");

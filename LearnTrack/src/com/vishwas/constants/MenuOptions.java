@@ -1,7 +1,5 @@
 package com.vishwas.constants;
 
-import com.vishwas.exception.CustomException;
-
 import java.util.Scanner;
 
 public class MenuOptions {

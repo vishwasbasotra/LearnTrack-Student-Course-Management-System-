@@ -3,7 +3,6 @@ package com.vishwas.ui;
 import com.vishwas.constants.MenuOptions;
 import com.vishwas.entity.Course;
 import com.vishwas.entity.Enrollment;
-import com.vishwas.entity.Person;
 import com.vishwas.entity.Student;
 import com.vishwas.exception.CustomException;
 import com.vishwas.service.CourseService;
@@ -11,7 +10,6 @@ import com.vishwas.service.EnrollmentService;
 import com.vishwas.service.StudentService;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Main {
     protected static ArrayList<Student> studentList = new ArrayList<>();
