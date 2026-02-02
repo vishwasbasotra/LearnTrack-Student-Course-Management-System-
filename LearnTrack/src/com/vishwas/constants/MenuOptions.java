@@ -8,7 +8,7 @@ public class MenuOptions {
     static Scanner sc = new Scanner(System.in);
 
     public static int displayMainMenu(){
-        System.out.println("Learner Track: Student & Course Management");
+        System.out.println("\nLearner Track: Student & Course Management");
         System.out.println("------------------Menu--------------------");
         System.out.println("1. Student Management");
         System.out.println("2. Course Management");

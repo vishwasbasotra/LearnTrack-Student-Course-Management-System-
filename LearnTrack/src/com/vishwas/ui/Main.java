@@ -28,7 +28,7 @@ public class Main {
 //            s.displayStudentDetails();
 //        }
 
-        Person.getPopulation();
+        //Person.getPopulation();
         ArrayList<Course> courseList = new ArrayList<>();
         Course c1 = new Course("DSA", "NA", 60, true);
         Course c2 = new Course("DBMS", "NA", 60,true);
@@ -56,14 +56,18 @@ public class Main {
             selectedMainMenuOption = MenuOptions.displayMainMenu();
             switch (selectedMainMenuOption){
                 case 1:
-                    for (int i = 0; i < 50; i++)    System.out.println(); //Print 50 new lines
+                    for (int i = 0; i < 50; i++)    System.out.println();//Print 50 new lines
+                    System.out.println("-------Student Management-------\n");
                     StudentService.studentManagement(MenuOptions.displayStudentMenu());
+                    return;
                 case 2:
                     for (int i = 0; i < 50; i++)    System.out.println(); //Print 50 new lines
                     MenuOptions.displayCourseMenu();
+                    return;
                 case 3:
                     for (int i = 0; i < 50; i++)    System.out.println(); //Print 50 new lines
                     MenuOptions.displayEnrollmentMenu();
+                    return;
                 case 4:
                     System.out.println("Thank You!!!");
                     return;

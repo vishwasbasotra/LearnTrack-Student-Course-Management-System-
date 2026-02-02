@@ -19,15 +19,16 @@ public class StudentService {
             case 1:
                 for (int i = 0; i < 50; i++) System.out.println(); //Print 50 new lines
                 addStudent();
+                return;
             case 2:
                 for (int i = 0; i < 50; i++) System.out.println(); //Print 50 new lines
-
+                return;
             case 3:
                 for (int i = 0; i < 50; i++) System.out.println(); //Print 50 new lines
-
+                return;
             case 4:
                 for (int i = 0; i < 50; i++) System.out.println(); //Print 50 new lines
-
+                return;
             case 5:
                 System.out.println("Thank You!!!");
                 return;
