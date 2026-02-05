@@ -37,7 +37,6 @@ Developing LearnTrack provided deep practical experience in:
 
 ## Suggested Directory Structure
 ### 📂 Project Structure
-
 ```bash
 src
 └── com
