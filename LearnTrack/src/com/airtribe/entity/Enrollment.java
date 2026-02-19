@@ -1,6 +1,6 @@
-package com.vishwas.entity;
+package com.airtribe.entity;
 
-import com.vishwas.util.Inputvalidator;
+import com.airtribe.util.Inputvalidator;
 
 import java.time.LocalDate;
 

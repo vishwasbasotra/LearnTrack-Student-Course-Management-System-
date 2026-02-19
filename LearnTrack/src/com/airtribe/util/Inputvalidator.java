@@ -1,6 +1,6 @@
-package com.vishwas.util;
+package com.airtribe.util;
 
-import com.vishwas.exception.CustomException;
+import com.airtribe.exception.CustomException;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

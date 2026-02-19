@@ -1,10 +1,10 @@
-package com.vishwas.service;
+package com.airtribe.service;
 
-import com.vishwas.entity.Course;
-import com.vishwas.exception.EntityNotFoundException;
-import com.vishwas.ui.Main;
-import com.vishwas.exception.CustomException;
-import com.vishwas.util.Inputvalidator;
+import com.airtribe.entity.Course;
+import com.airtribe.exception.EntityNotFoundException;
+import com.airtribe.ui.Main;
+import com.airtribe.exception.CustomException;
+import com.airtribe.util.Inputvalidator;
 
 import java.util.Scanner;
 

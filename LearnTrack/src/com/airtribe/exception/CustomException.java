@@ -1,4 +1,4 @@
-package com.vishwas.exception;
+package com.airtribe.exception;
 
 public class CustomException {
 

@@ -1,13 +1,13 @@
-package com.vishwas.ui;
+package com.airtribe.ui;
 
-import com.vishwas.constants.MenuOptions;
-import com.vishwas.entity.Course;
-import com.vishwas.entity.Enrollment;
-import com.vishwas.entity.Student;
-import com.vishwas.exception.CustomException;
-import com.vishwas.service.CourseService;
-import com.vishwas.service.EnrollmentService;
-import com.vishwas.service.StudentService;
+import com.airtribe.constants.MenuOptions;
+import com.airtribe.entity.Course;
+import com.airtribe.entity.Enrollment;
+import com.airtribe.entity.Student;
+import com.airtribe.exception.CustomException;
+import com.airtribe.service.CourseService;
+import com.airtribe.service.EnrollmentService;
+import com.airtribe.service.StudentService;
 
 import java.util.ArrayList;
 
@@ -15,7 +15,7 @@ public class Main {
     protected static ArrayList<Student> studentList = new ArrayList<>();
     protected static ArrayList<Course> courseList = new ArrayList<>();
     protected static ArrayList<Enrollment> enrollmentList = new ArrayList<>();
-    static void main(String[] args) {
+    public static void main(String[] args) {
         int selectedMainMenuOption, selectedStudentMenuOption, selectedCourseMenuOption, selectedEnrollmentMenuOption;
 
         Student s1 = new Student("Akash", "Sharma", "Male", "test@gmail.com", "Java18", true);

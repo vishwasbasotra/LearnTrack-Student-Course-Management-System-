@@ -1,4 +1,4 @@
-package com.vishwas.constants;
+package com.airtribe.constants;
 
 import java.util.Scanner;
 
