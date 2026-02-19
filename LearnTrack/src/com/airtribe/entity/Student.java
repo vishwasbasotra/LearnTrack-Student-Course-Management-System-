@@ -4,13 +4,13 @@ import com.airtribe.util.Inputvalidator;
 
 public class Student extends Person {
     private static int nextID = 1001;
-    final int studentID;
+    private final int studentID;    // ID should usually be private and final
     private String batch;
     private final String email;
     private boolean active;
 
     public Student(String firstName, String lastName,String sex, String email, String batch, boolean active) {
-        super(firstName, lastName, sex);
+        super(firstName, lastName, sex);    // Initializes Person fields
         this.studentID = nextID++;
         this.email = Inputvalidator.emailValidator(email);
         this.batch = Inputvalidator.setBatch(batch);
@@ -26,8 +26,9 @@ public class Student extends Person {
     }
 
     public void displayStudentDetails(){
-        System.out.println("\nStudent Name: "+this.firstName+" "+this.lastName);
-        System.out.println("Sex: "+sex);
+        // Use getters from Parent class
+        System.out.println("\nStudent Name: "+this.getFirstName()+" "+this.getLastName());
+        System.out.println("Sex: "+this.getSex());
         System.out.println("ID: "+this.studentID);
         System.out.println("Email: "+this.email);
         System.out.println("Batch : "+this.batch);
@@ -35,8 +36,10 @@ public class Student extends Person {
         else  System.out.println("Status: Not-Active\n");
     }
 
+
+    // --- Getters & Setters ---
     public String fullName(){
-        return this.firstName+" "+this.lastName;
+        return this.getFirstName() +" "+ this.getLastName();
     }
 
     public String getBatch() {
