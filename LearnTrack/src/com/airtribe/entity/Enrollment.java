@@ -14,7 +14,7 @@ public class Enrollment {
 
     public Enrollment(Student s, String enrollmentDate, String status) {
         this.enrollmentID = nextID++;
-        this.studentID = s.studentID;
+        this.studentID = s.getStudentID();
         this.enrollmentDate = Inputvalidator.setEnrollmentDate(enrollmentDate);
         this.enrollmentStatus = Inputvalidator.setEnrollmentStatus(status);
     }

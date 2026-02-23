@@ -27,7 +27,7 @@ public class Student extends Person {
 
     public void displayStudentDetails(){
         // Use getters from Parent class
-        System.out.println("\nStudent Name: "+this.getFirstName()+" "+this.getLastName());
+        System.out.println("\nStudent Name: "+ getFirstName()+" "+ getLastName());
         System.out.println("Sex: "+this.getSex());
         System.out.println("ID: "+this.studentID);
         System.out.println("Email: "+this.email);
@@ -41,30 +41,27 @@ public class Student extends Person {
     public String fullName(){
         return this.getFirstName() +" "+ this.getLastName();
     }
-
     public String getBatch() {
         return batch;
     }
-
-    public String isActive() {
-        if(active)  return "Active";
-        return "Not-Active";
+    public boolean isActive() {
+        return this.active;
     }
-
     public String getEmail() {
         return email;
     }
-
     public int getStudentID() {
         return studentID;
     }
+
+
     public void setFirstName(String firstName) {
-        if(firstName != null) this.firstName = firstName;
+        if(firstName != null) setFirstName(firstName);
         else System.out.println("Empty");
     }
 
     public void setLastName(String lastName) {
-        if(lastName != null) this.lastName = firstName;
+        if(lastName != null) setLastName(lastName);
         else System.out.println("Empty");
     }
 

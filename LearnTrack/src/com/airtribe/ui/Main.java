@@ -18,20 +18,15 @@ public class Main {
 
         StudentRepository studentRepo = new StudentRepository();
 
-        // 2. Initialize Services (Injecting Repositories via Composition)
-        // Note: You'll need to update your Service constructors to accept these!
+        // 2. Seed Data (Pre-loading records)
+        studentRepo.save(new Student("Akash", "Sharma", "Male", "test@gmail.com", "Java18", true));
+        studentRepo.save(new Student("Vishwas", "Basotra", "Male", "rest@gmail.com", "Java18", true));
+        studentRepo.save(new Student("Chander", "Kumar", "Male", "hello@gmail.com", "Java18", true));
+        studentRepo.save(new Student("Ridhima", "Sharma", "Female", "yoo@gmail.com", "JS18", true));
+        studentRepo.save(new Student("Sakshi", "Sharma", "Female", "sakshi@gmail.com", "JS18", true));
+
+        // 3. Initialize Services with the repositories that now have data
         StudentService studentService = new StudentService(studentRepo);
-//        Student s1 = new Student("Akash", "Sharma", "Male", "test@gmail.com", "Java18", true);
-//        Student s2 = new Student("Vishwas", "Basotra", "Male","rest@gmail.com", "Java18", true);
-//        Student s3 = new Student("Chander", "Kumar", "Male","hello@gmail.com", "Java18", true);
-//        Student s4 = new Student("Ridhima", "Sharma", "Female","yoo@gmail.com", "JS18", true);
-//        Student s5 = new Student("Sakshi", "Sharma", "Female","sakshi@gmail.com", "JS18", true);
-//
-//        studentList.add(s1);
-//        studentList.add(s2);
-//        studentList.add(s3);
-//        studentList.add(s4);
-//        studentList.add(s5);
 
 //        Course c1 = new Course("DSA", "NA", 60, true);
 //        Course c2 = new Course("DBMS", "NA", 60,true);

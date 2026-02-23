@@ -31,4 +31,16 @@ public class Person {
     public static void getPopulation() {
         System.out.println("Total Students: "+population); ;
     }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
 }
