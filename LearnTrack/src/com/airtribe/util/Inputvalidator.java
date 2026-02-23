@@ -1,5 +1,6 @@
 package com.airtribe.util;
 
+import com.airtribe.enums.EnrollmentStatus;
 import com.airtribe.exception.CustomException;
 
 import java.time.LocalDate;
@@ -96,5 +97,4 @@ public  class Inputvalidator {
         if(!input.equals("act") && !input.equals("deact"))   CustomException.invalidEnrollmentStatus();
         return input;
     }
-
 }

@@ -1,6 +1,7 @@
 package com.airtribe.service;
 
 import com.airtribe.entity.Enrollment;
+import com.airtribe.enums.EnrollmentStatus;
 import com.airtribe.exception.EntityNotFoundException;
 import com.airtribe.repository.EnrollmentRepository;
 import com.airtribe.ui.Main;
@@ -40,8 +41,8 @@ public class EnrollmentService extends Main {
                 for (Enrollment e : enrollmentRepo.findAll()) {
                     if (e.getEnrollmentID() == id) {
                         System.out.print("Enter Enrollment Status? (Active/Completed/Cancelled): ");
-                        String status = Inputvalidator.setEnrollmentStatus(sc.next());
-                        e.setEnrollmentStatus(status);
+                        EnrollmentStatus status = EnrollmentStatus.fromString(sc.next());
+                        e.setStatus(status);
                         e.displayEnrollmentDetails();
                         flag = true;
                     }
@@ -72,7 +73,7 @@ public class EnrollmentService extends Main {
         Inputvalidator.setEnrollmentDate(enrollmentDate);
 
         System.out.print("Enter Enrollment Status? (Active/Completed/Cancelled): ");
-        String status = sc.next();
+        EnrollmentStatus status = EnrollmentStatus.fromString(sc.next());
 
         return new Enrollment(studentID, enrollmentDate , status);
     }
