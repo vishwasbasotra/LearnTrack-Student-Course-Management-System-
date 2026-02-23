@@ -2,70 +2,74 @@ package com.airtribe.service;
 
 import com.airtribe.entity.Course;
 import com.airtribe.exception.EntityNotFoundException;
+import com.airtribe.repository.CourseRepository;
 import com.airtribe.ui.Main;
-import com.airtribe.exception.CustomException;
 import com.airtribe.util.Inputvalidator;
 
 import java.util.Scanner;
 
-public class CourseService extends Main {
-    static Scanner sc = new Scanner(System.in);
-    static String courseName, description;
-    private static String active;
-    static int id, durationInWeeks;
-    static boolean flag;
+public class CourseService {
+    private static Scanner sc = new Scanner(System.in);
+    private static CourseRepository courseRepo = new CourseRepository();
+
+    // Constructor: Dependency Injection
+    public CourseService(CourseRepository courseRepo){
+        CourseService.courseRepo = courseRepo;
+    }
 
     public static void courseManagement(int option){
         switch (option){
             case 1:
                 for (int i = 0; i < 50; i++) System.out.println(); //Print 50 new lines
-                courseList.add(addCourse());
+                Course newCourse = addCourse();
+                courseRepo.save(newCourse);
                 System.out.println("\n-------Course Added Successfully-------");
-                courseList.getLast().displayCourseDetails();
-                return;
+                courseRepo.findAll().forEach(Course::displayCourseDetails);
+                break;
             case 2:
                 for (int i = 0; i < 50; i++) System.out.println(); //Print 50 new lines
                 System.out.println("-------List of all the Courses-------\n");
-                for(Course c: courseList){
-                    c.displayCourseDetails();
-                }
-                return;
+                courseRepo.findAll().forEach(Course::displayCourseDetails);
+                break;
             case 3:
                 for (int i = 0; i < 50; i++) System.out.println(); //Print 50 new lines
                 System.out.println("\n-------Activate/Deactivate a course by ID-------");
-                System.out.print("Enter Course ID Starting 101 to ... : ");
-                id = Inputvalidator.validateCourseID(sc.nextInt());
-                flag = false;
-                for(Course c: courseList){
+                System.out.print("\nEnter 'act' or 'deact' to activate/deactivate a course: ");
+                String changeStatus = Inputvalidator.validateCourseStatus(sc.next());
+
+                System.out.print("Enter Course ID starting from 101: ");
+                int id = Inputvalidator.validateCourseID(sc.nextInt());
+                boolean flag = false;
+
+                for(Course c: courseRepo.findAll()){
                     if(c.getCourseID() == id){
-                        c.setActive(false);
+                        if (changeStatus.equals("act")) c.setActive(true);
+                        else c.setActive(false);
                         c.displayCourseDetails();
                         flag = true;
+                        break; // Optimization: Stop looking once you find the course
                     }
                 }
                 if(!flag) EntityNotFoundException.courseNotFound();
-                return;
+                break;
             case 4:
-                System.out.println("Thank You!!!");
                 return;
-            default:
-                CustomException.invalidInput();
         }
     }
 
     public static Course addCourse(){
         System.out.println("-------Enter Course Details-------\n");
         System.out.print("Enter Course Name: ");
-        courseName = Inputvalidator.setCourseName(sc.next());
+        String courseName = Inputvalidator.setCourseName(sc.next());
 
         System.out.print("Enter Description: ");
-        description = Inputvalidator.setDescription(sc.next());
+        String description = Inputvalidator.setDescription(sc.next());
 
         System.out.print("Enter Duration in Weeks: ");
-        durationInWeeks = Inputvalidator.setDuration(sc.nextInt());
+        int durationInWeeks = Inputvalidator.setDuration(sc.nextInt());
 
         System.out.print("Is the course currently Active? (yes/no): ");
-        active = sc.next();
+        String active = sc.next();
 
         // Logical Conversion: If they type "yes", status becomes true
         boolean status = active.equalsIgnoreCase("yes");

@@ -1,22 +1,25 @@
 package com.airtribe.ui;
 
 import com.airtribe.constants.MenuOptions;
+//import com.airtribe.entity.Enrollment;
 import com.airtribe.entity.Course;
 import com.airtribe.entity.Enrollment;
 import com.airtribe.entity.Student;
-import com.airtribe.exception.CustomException;
+import com.airtribe.repository.EnrollmentRepository;
 import com.airtribe.repository.StudentRepository;
+import com.airtribe.repository.CourseRepository;
 import com.airtribe.service.CourseService;
+//import com.airtribe.service.EnrollmentService;
 import com.airtribe.service.EnrollmentService;
 import com.airtribe.service.StudentService;
-
-import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
         // 1. Initialize Repositories (The new Data Layer)
 
         StudentRepository studentRepo = new StudentRepository();
+        CourseRepository courseRepo = new CourseRepository();
+        EnrollmentRepository enrollmentRepo = new EnrollmentRepository();
 
         // 2. Seed Data (Pre-loading records)
         studentRepo.save(new Student("Akash", "Sharma", "Male", "test@gmail.com", "Java18", true));
@@ -25,23 +28,18 @@ public class Main {
         studentRepo.save(new Student("Ridhima", "Sharma", "Female", "yoo@gmail.com", "JS18", true));
         studentRepo.save(new Student("Sakshi", "Sharma", "Female", "sakshi@gmail.com", "JS18", true));
 
+        courseRepo.save(new Course("DSA", "NA", 60, true));
+        courseRepo.save(new Course("DBMS", "NA", 60,true));
+        courseRepo.save(new Course("OS", "NA", 60,true));
+
+        enrollmentRepo.save(new Enrollment(studentRepo.findAll().get(0), "23/12/2026", "Active"));
+        enrollmentRepo.save(new Enrollment(studentRepo.findAll().get(1), "11/12/2026", "Active"));
+        enrollmentRepo.save(new Enrollment(studentRepo.findAll().get(2), "27/12/2026", "Cancelled"));
+
         // 3. Initialize Services with the repositories that now have data
         StudentService studentService = new StudentService(studentRepo);
-
-//        Course c1 = new Course("DSA", "NA", 60, true);
-//        Course c2 = new Course("DBMS", "NA", 60,true);
-//        Course c3 = new Course("OS", "NA", 60,true);
-//        courseList.add(c1);
-//        courseList.add(c2);
-//        courseList.add(c3);
-//
-//        Enrollment e1 = new Enrollment(s1, "23/12/2026", "Active");
-//        Enrollment e2 = new Enrollment(s2, "11/12/2026", "Active");
-//        Enrollment e3 = new Enrollment(s3, "27/12/2026", "Cancelled");
-//
-//        enrollmentList.add(e1);
-//        enrollmentList.add(e2);
-//        enrollmentList.add(e3);
+        CourseService courseService = new CourseService(courseRepo);
+        EnrollmentService enrollmentService = new EnrollmentService(enrollmentRepo);
 
         boolean running = true;
         while(running){

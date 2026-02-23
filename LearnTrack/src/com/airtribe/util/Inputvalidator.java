@@ -50,8 +50,19 @@ public  class Inputvalidator {
         if(input < 1000)   CustomException.invalidStudentID();
         return input;
     }
+
+    public static String validateStudentStatus(String input){
+        if(!input.equals("act") && !input.equals("deact"))   CustomException.studentStatus();
+        return input;
+    }
+
     public static int validateCourseID(int input){
         if(input < 100)   CustomException.invalidCourseID();
+        return input;
+    }
+
+    public static String validateCourseStatus(String input){
+        if(!input.equals("act") && !input.equals("deact"))   CustomException.invalidCourseStatus();
         return input;
     }
     public static int validateEnrollmentID(int input){
@@ -69,7 +80,20 @@ public  class Inputvalidator {
         return date;
     }
     public static String setEnrollmentStatus(String input){
-        if(!input.equals("Active") && !input.equals("Completed") && !input.equals("Cancelled") )   CustomException.invalidEnrollmentStatus();
+        if(!input.equals("Active") &&
+                !input.equals("Completed") &&
+                !input.equals("Cancelled") &&
+                !input.equals("active") &&
+                !input.equals("completed") &&
+                !input.equals("cancelled") &&
+                !input.equals("ACTIVE") &&
+                !input.equals("COMPLETED") &&
+                !input.equals("CANCELLED"))   CustomException.invalidEnrollmentStatus();
+        return input;
+    }
+
+    public static String validateEnrollmentStatus(String input){
+        if(!input.equals("act") && !input.equals("deact"))   CustomException.invalidEnrollmentStatus();
         return input;
     }
 

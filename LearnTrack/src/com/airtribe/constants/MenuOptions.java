@@ -20,7 +20,7 @@ public class MenuOptions {
         System.out.println("1. Add new student");
         System.out.println("2. View all students");
         System.out.println("3. Search student by ID");
-        System.out.println("4. Deactivate a student");
+        System.out.println("4. Activate/Deactivate a student");
         System.out.println("5. Exit");
         System.out.print("\nEnter 1-5 to select: ");
         return sc.nextInt();

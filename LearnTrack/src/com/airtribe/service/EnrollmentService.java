@@ -2,6 +2,7 @@ package com.airtribe.service;
 
 import com.airtribe.entity.Enrollment;
 import com.airtribe.exception.EntityNotFoundException;
+import com.airtribe.repository.EnrollmentRepository;
 import com.airtribe.ui.Main;
 import com.airtribe.exception.CustomException;
 import com.airtribe.util.Inputvalidator;
@@ -9,57 +10,56 @@ import com.airtribe.util.Inputvalidator;
 import java.util.Scanner;
 
 public class EnrollmentService extends Main {
-    static Scanner sc = new Scanner(System.in);
-    static int studentID, id;
-    static String status, enrollmentDate;
-    static boolean flag;
+    private static Scanner sc = new Scanner(System.in);
+    private static EnrollmentRepository enrollmentRepo = new EnrollmentRepository();
+
+    public EnrollmentService(EnrollmentRepository enrollmentRepo) {
+        EnrollmentService.enrollmentRepo = enrollmentRepo;
+    }
+
     public static void enrollmentManagement(int option){
-        switch (option){
+        switch (option) {
             case 1:
                 for (int i = 0; i < 50; i++) System.out.println(); //Print 50 new lines
-                enrollmentList.add(enrollStudent());
+                Enrollment newEnrollment = enrollStudent();
+                enrollmentRepo.save(newEnrollment);
                 System.out.println("\n-------Student Enrolled Successfully-------");
-                enrollmentList.getLast().displayEnrollmentDetails();
-                return;
+                newEnrollment.displayEnrollmentDetails();
+                break;
             case 2:
                 for (int i = 0; i < 50; i++) System.out.println(); //Print 50 new lines
                 System.out.println("-------List of Enrolled Students-------\n");
-                for(Enrollment e: enrollmentList){
-                    e.displayEnrollmentDetails();
-                }
-                return;
+                enrollmentRepo.findAll().forEach(Enrollment::displayEnrollmentDetails);
+                break;
             case 3:
                 for (int i = 0; i < 50; i++) System.out.println(); //Print 50 new lines
                 System.out.println("\n-------Change Enrollment Status Student by Enrollment ID-------");
-                System.out.print("Enter Enrollment ID Starting 10001 to ... : ");
-                id = Inputvalidator.validateEnrollmentID(sc.nextInt());
-                flag = false;
-                for(Enrollment e: enrollmentList){
-                    if(e.getEnrollmentID() == id){
+                System.out.print("Enter Enrollment ID Starting from 10001: ");
+                int id = Inputvalidator.validateEnrollmentID(sc.nextInt());
+                boolean flag = false;
+                for (Enrollment e : enrollmentRepo.findAll()) {
+                    if (e.getEnrollmentID() == id) {
                         System.out.print("Enter Enrollment Status? (Active/Completed/Cancelled): ");
-                        status = Inputvalidator.setEnrollmentStatus(sc.next());
+                        String status = Inputvalidator.setEnrollmentStatus(sc.next());
                         e.setEnrollmentStatus(status);
                         e.displayEnrollmentDetails();
                         flag = true;
                     }
                 }
-                if(!flag) EntityNotFoundException.enrollmentDoesNotExist();
+                if (!flag) EntityNotFoundException.enrollmentDoesNotExist();
                 System.out.println("\n-------Student Enrolled Successfully-------");
-                return;
+                break;
             case 4:
-                System.out.println("Thank You!!!");
                 return;
-            default:
-                CustomException.invalidInput();
         }
     }
 
     public static Enrollment enrollStudent(){
         System.out.println("-------Enter Student Details-------\n");
         System.out.print("Enter Student ID from 1001 which is not enrolled yet: ");
-        studentID = Inputvalidator.validateStudentID(sc.nextInt());
-        flag = false;
-        for(Enrollment e: enrollmentList){
+        int studentID = Inputvalidator.validateStudentID(sc.nextInt());
+        boolean flag = false;
+        for(Enrollment e: enrollmentRepo.findAll()){
             if (e.getStudentID() == studentID) {
                 flag = true;
                 break;
@@ -68,11 +68,11 @@ public class EnrollmentService extends Main {
         if(flag) EntityNotFoundException.alreadyEnrolled();
 
         System.out.print("Enter Date in dd/MM/yyyy format: ");
-        enrollmentDate = sc.next();
+        String enrollmentDate = sc.next();
         Inputvalidator.setEnrollmentDate(enrollmentDate);
 
         System.out.print("Enter Enrollment Status? (Active/Completed/Cancelled): ");
-        status = sc.next();
+        String status = sc.next();
 
         return new Enrollment(studentID, enrollmentDate , status);
     }

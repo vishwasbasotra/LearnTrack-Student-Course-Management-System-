@@ -49,6 +49,9 @@ public class CustomException {
     public static void invalidCourseID(){
         throw new IllegalAccessError("Enter CourseID Starting from 101");
     }
+    public static void invalidCourseStatus(){
+        throw new IllegalAccessError("Enter status act or deact");
+    }
     public static void invalidEnrollmentID(){
         throw new IllegalAccessError("Enter EnrollmentID Starting from 10001");
     }
@@ -59,4 +62,15 @@ public class CustomException {
         throw new IllegalAccessError("Invalid Enrollment Status, Please Enter e.g., 'ACTIVE', 'COMPLETED', 'CANCELLED '");
     }
 
+    public static void studentStatus() {
+        throw new IllegalAccessError("Enter 'act' or 'deact");
+    }
+
+    public static void courseStatus() {
+        throw new IllegalAccessError("Enter 'act' or 'deact");
+    }
+
+    public static void enrollementStatus() {
+        throw new IllegalAccessError("Enter 'act' or 'deact");
+    }
 }

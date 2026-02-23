@@ -2,7 +2,6 @@ package com.airtribe.repository;
 
 import com.airtribe.entity.Student;
 
-import java.util.Optional;
 import java.util.ArrayList;
 import java.util.List;
 

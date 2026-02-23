@@ -10,7 +10,7 @@ import com.airtribe.util.Inputvalidator;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class StudentService extends Main {
+public class StudentService {
     private static StudentRepository studentRepo = new StudentRepository();
     private static final Scanner sc = new Scanner(System.in);
 
@@ -36,7 +36,7 @@ public class StudentService extends Main {
             case 3:
                 for (int i = 0; i < 50; i++) System.out.println(); //Print 50 new lines
                 System.out.println("\n-------Search Student by ID-------");
-                System.out.print("Enter Student ID Starting 1001 to ... : ");
+                System.out.print("Enter Student ID Starting from 1001 : ");
                 boolean flag = false;
                 int searchId = Inputvalidator.validateStudentID(sc.nextInt());
                 for(Student s: studentRepo.findAll()){
@@ -50,14 +50,19 @@ public class StudentService extends Main {
                 break;
             case 4:
                 for (int i = 0; i < 50; i++) System.out.println(); //Print 50 new lines
-                System.out.println("\n-------Deactivation Student by ID-------");
-                System.out.print("\nEnter StudentID: ");
+                System.out.println("\n-------Activate/Deactivate Student by ID-------");
+                System.out.print("\nEnter 'act' or 'deact' to activate/deactivate a student: ");
+                String changeStatus = Inputvalidator.validateStudentStatus(sc.next());
+
+                System.out.print("Enter StudentID from 1001: ");
                 int deactId = Inputvalidator.validateStudentID(sc.nextInt());
                 flag = false;
 
                 // Call .findAll() so the loop has an actual list to go through
                 for (Student s : studentRepo.findAll()) {
                     if (s.getStudentID() == deactId) {
+                        if (changeStatus.equals("act")) s.setActive(true);
+                        else s.setActive(false);
                         s.displayStudentDetails();
                         flag = true;
                         break; // Optimization: Stop looking once you find the student
