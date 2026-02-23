@@ -5,6 +5,7 @@ import com.airtribe.constants.MenuOptions;
 import com.airtribe.entity.Course;
 import com.airtribe.entity.Enrollment;
 import com.airtribe.entity.Student;
+import com.airtribe.enums.EnrollmentStatus;
 import com.airtribe.repository.EnrollmentRepository;
 import com.airtribe.repository.StudentRepository;
 import com.airtribe.repository.CourseRepository;
@@ -32,9 +33,9 @@ public class Main {
         courseRepo.save(new Course("DBMS", "NA", 60,true));
         courseRepo.save(new Course("OS", "NA", 60,true));
 
-        enrollmentRepo.save(new Enrollment(studentRepo.findAll().get(0), "23/12/2026", "Active"));
-        enrollmentRepo.save(new Enrollment(studentRepo.findAll().get(1), "11/12/2026", "Active"));
-        enrollmentRepo.save(new Enrollment(studentRepo.findAll().get(2), "27/12/2026", "Cancelled"));
+        enrollmentRepo.save(new Enrollment(studentRepo.findAll().get(0), "23/12/2026", EnrollmentStatus.fromString("Active")));
+        enrollmentRepo.save(new Enrollment(studentRepo.findAll().get(1), "11/12/2026", EnrollmentStatus.fromString("Active")));
+        enrollmentRepo.save(new Enrollment(studentRepo.findAll().get(2), "27/12/2026", EnrollmentStatus.fromString("Cancelled")));
 
         // 3. Initialize Services with the repositories that now have data
         StudentService studentService = new StudentService(studentRepo);

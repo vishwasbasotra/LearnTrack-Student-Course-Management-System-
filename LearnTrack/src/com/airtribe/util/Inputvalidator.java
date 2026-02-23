@@ -80,19 +80,6 @@ public  class Inputvalidator {
         }
         return date;
     }
-    public static String setEnrollmentStatus(String input){
-        if(!input.equals("Active") &&
-                !input.equals("Completed") &&
-                !input.equals("Cancelled") &&
-                !input.equals("active") &&
-                !input.equals("completed") &&
-                !input.equals("cancelled") &&
-                !input.equals("ACTIVE") &&
-                !input.equals("COMPLETED") &&
-                !input.equals("CANCELLED"))   CustomException.invalidEnrollmentStatus();
-        return input;
-    }
-
     public static String validateEnrollmentStatus(String input){
         if(!input.equals("act") && !input.equals("deact"))   CustomException.invalidEnrollmentStatus();
         return input;
