@@ -48,9 +48,15 @@ src
         │   ├── Enrollment.java
         │   ├── Person.java
         │   └── Student.java
+        ├── enums      
+        │   ├── EnrollmentStatus.java
         ├── exception   # Custom error handling
         │   ├── CustomException.java
         │   └── EntityNotFoundException.java
+        ├── Repository     
+        │   ├── CourseRepository.java
+        │   ├── EnrollmentRepository.java
+        │   └── StudentRepository.java
         ├── service     # Business logic layer
         │   ├── CourseService.java
         │   ├── EnrollmentService.java
