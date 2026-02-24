@@ -1,6 +1,7 @@
-package com.vishwas.entity;
+package com.airtribe.entity;
 
-import com.vishwas.util.Inputvalidator;
+import com.airtribe.enums.EnrollmentStatus;
+import com.airtribe.util.Inputvalidator;
 
 import java.time.LocalDate;
 
@@ -10,26 +11,26 @@ public class Enrollment {
     final int enrollmentID;
     int studentID;
     private final LocalDate enrollmentDate;
-    private String enrollmentStatus;
+    private EnrollmentStatus status;
 
-    public Enrollment(Student s, String enrollmentDate, String status) {
+    public Enrollment(Student s, String enrollmentDate, EnrollmentStatus status) {
         this.enrollmentID = nextID++;
-        this.studentID = s.studentID;
+        this.studentID = s.getStudentID();
         this.enrollmentDate = Inputvalidator.setEnrollmentDate(enrollmentDate);
-        this.enrollmentStatus = Inputvalidator.setEnrollmentStatus(status);
+        this.status = status;
     }
-    public Enrollment(int studentID,String enrollmentDate, String status) {
+    public Enrollment(int studentID,String enrollmentDate, EnrollmentStatus status) {
         this.enrollmentID = nextID++;
         this.studentID = studentID;
         this.enrollmentDate = Inputvalidator.setEnrollmentDate(enrollmentDate);
-        this.enrollmentStatus = Inputvalidator.setEnrollmentStatus(status);
+        this.status = status;
     }
 
     public void displayEnrollmentDetails(){
         System.out.println("\nEnrollment ID: "+this.enrollmentID);
         System.out.println("Student ID: "+this.studentID);
         System.out.println("Enrollment Date: "+this.enrollmentDate);
-        System.out.println("Enrollment Status: "+this.enrollmentStatus);
+        System.out.println("Enrollment Status: "+this.status);
     }
 
     public int getEnrollmentID() {
@@ -40,7 +41,7 @@ public class Enrollment {
         return studentID;
     }
 
-    public void setEnrollmentStatus(String enrollmentStatus) {
-        this.enrollmentStatus = enrollmentStatus;
+    public void setStatus(EnrollmentStatus status) {
+        this.status = status;
     }
 }

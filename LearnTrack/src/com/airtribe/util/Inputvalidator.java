@@ -1,6 +1,7 @@
-package com.vishwas.util;
+package com.airtribe.util;
 
-import com.vishwas.exception.CustomException;
+import com.airtribe.enums.EnrollmentStatus;
+import com.airtribe.exception.CustomException;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -50,8 +51,19 @@ public  class Inputvalidator {
         if(input < 1000)   CustomException.invalidStudentID();
         return input;
     }
+
+    public static String validateStudentStatus(String input){
+        if(!input.equals("act") && !input.equals("deact"))   CustomException.studentStatus();
+        return input;
+    }
+
     public static int validateCourseID(int input){
         if(input < 100)   CustomException.invalidCourseID();
+        return input;
+    }
+
+    public static String validateCourseStatus(String input){
+        if(!input.equals("act") && !input.equals("deact"))   CustomException.invalidCourseStatus();
         return input;
     }
     public static int validateEnrollmentID(int input){
@@ -68,9 +80,8 @@ public  class Inputvalidator {
         }
         return date;
     }
-    public static String setEnrollmentStatus(String input){
-        if(!input.equals("Active") && !input.equals("Completed") && !input.equals("Cancelled") )   CustomException.invalidEnrollmentStatus();
+    public static String validateEnrollmentStatus(String input){
+        if(!input.equals("act") && !input.equals("deact"))   CustomException.invalidEnrollmentStatus();
         return input;
     }
-
 }
